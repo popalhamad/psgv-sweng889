@@ -55,6 +55,27 @@ To regenerate this script with the same or similar output:
 
 ---
 
+## 5. AI App Structure and Local Ollama Integration
+
+### Prompt
+
+```
+Review this bike-demand project and design a small Streamlit-based AI app that combines:
+- a machine learning bike-demand prediction; and
+- a local LLM explanation via Ollama.
+
+Requirements:
+1. Separate UI, ML logic, and LLM logic into distinct modules.
+2. Keep the ML prediction as the core result.
+3. Use Ollama locally rather than a hosted commercial API.
+4. If Ollama is unavailable, still show the ML prediction with a fallback explanation.
+5. Validate valid input, invalid input, and LLM failure scenarios.
+```
+
+### Purpose
+
+Create the small AI-enabled application structure so the user interface, ML model logic, and local LLM interaction remain clear, testable, and independent.
+
 ---
 
 ## 2. Data Preparation and Feature Engineering (`src/prepare_data.py`)
