@@ -1,0 +1,29 @@
+# Two services: a local model server, and the Python app that talks to it.
+# The app finds the model through OLLAMA_URL, never a hardcoded address.
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: sweng889-simple-agents-ollama
+    # No host port published. The app reaches Ollama by service name on the
+    # compose network, so publishing 11434 is not needed - and it would clash
+    # with any other exercise that has its own Ollama running.
+    volumes:
+      - ollama_data:/root/.ollama
+
+  agent-app:
+    build: .
+    container_name: sweng889-simple-agents-app
+    depends_on:
+      - ollama
+    stdin_open: true
+    tty: true
+    environment:
+      - OLLAMA_URL=http://ollama:11434
+      - OLLAMA_MODEL=qwen2.5:1.5b
+    volumes:
+      # Your edits take effect on the next run, with no rebuild.
+      - ./:/app
+    command: python -u app.py
+
+volumes:
+  ollama_data:

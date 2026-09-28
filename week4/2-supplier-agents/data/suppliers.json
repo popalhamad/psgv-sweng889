@@ -1,0 +1,41 @@
+{
+  "component": "CX-14 hydraulic valve",
+  "currency": "USD",
+  "suppliers": [
+    {
+      "name": "NorthForge Components",
+      "price_per_unit": 4.20,
+      "delivery_days": 12,
+      "reliability_score": 0.97,
+      "capacity_units": 1000
+    },
+    {
+      "name": "Kestrel Industrial",
+      "price_per_unit": 5.10,
+      "delivery_days": 6,
+      "reliability_score": 0.94,
+      "capacity_units": 600
+    },
+    {
+      "name": "Dalby Metalworks",
+      "price_per_unit": 3.85,
+      "delivery_days": 5,
+      "reliability_score": 0.71,
+      "capacity_units": 250
+    },
+    {
+      "name": "Verinox Supply",
+      "price_per_unit": 6.40,
+      "delivery_days": 4,
+      "reliability_score": 0.99,
+      "capacity_units": 800
+    },
+    {
+      "name": "Oriol Parts Co",
+      "price_per_unit": 4.75,
+      "delivery_days": 9,
+      "reliability_score": 0.88,
+      "capacity_units": 500
+    }
+  ]
+}

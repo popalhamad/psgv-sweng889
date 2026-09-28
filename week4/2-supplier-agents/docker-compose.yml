@@ -1,15 +1,13 @@
 services:
   ollama:
     image: ollama/ollama:latest
-    container_name: sweng889-module4-ollama
-    ports:
-      - "11434:11434"
+    container_name: sweng889-supplier-agents-ollama
     volumes:
       - ollama_data:/root/.ollama
 
   agent-app:
     build: .
-    container_name: sweng889-module4-simple-agents
+    container_name: sweng889-supplier-agents-app
     depends_on:
       - ollama
     stdin_open: true
@@ -17,7 +15,9 @@ services:
     environment:
       - OLLAMA_URL=http://ollama:11434
       - OLLAMA_MODEL=qwen2.5:1.5b
-    command: python app.py
+    volumes:
+      - ./:/app
+    command: python -u app.py
 
 volumes:
   ollama_data:
