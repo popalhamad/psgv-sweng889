@@ -1,0 +1,37 @@
+name: Module 6 Quality Checks
+
+on:
+  push:
+    paths:
+      - "week6/module6-verification-demo/**"
+      - ".github/workflows/module6-quality.yml"
+  pull_request:
+    paths:
+      - "week6/module6-verification-demo/**"
+      - ".github/workflows/module6-quality.yml"
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest ruff
+
+      - name: Run tests
+        working-directory: week6/module6-verification-demo
+        run: pytest -v
+
+      - name: Run linting
+        working-directory: week6/module6-verification-demo
+        run: ruff check src tests
